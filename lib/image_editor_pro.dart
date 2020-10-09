@@ -33,7 +33,8 @@ SignatureController _controller =
 class ImageEditorPro extends StatefulWidget {
   final Color appBarColor;
   final Color bottomBarColor;
-  ImageEditorPro({this.appBarColor, this.bottomBarColor});
+  File image;
+  ImageEditorPro({this.appBarColor, this.bottomBarColor, this.image});
 
   @override
   _ImageEditorProState createState() => _ImageEditorProState();
@@ -91,7 +92,8 @@ class _ImageEditorProState extends State<ImageEditorPro> {
     offsets.clear();
     multiwidget.clear();
     howmuchwidgetis = 0;
-    // TODO: implement initState
+
+    _image = widget.image;
     super.initState();
   }
 
@@ -168,11 +170,6 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                 onPressed: () {
                   _controller.points.clear();
                   setState(() {});
-                }),
-            new IconButton(
-                icon: Icon(Icons.camera),
-                onPressed: () {
-                  bottomsheets();
                 }),
             new FlatButton(
                 child: new Text("Done"),
